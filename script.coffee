@@ -105,17 +105,21 @@ $(document).ready ->
 		#canopy = paper.group(tri1, tri2, tri3, tri4).attr transform: baseTransform
 		canopy = paper.group tri1, tri2, tri3, tri4
 		#canopyOutline = canopy.clone().attr transform: "s#{(size * h + 2) / (size * h)},#{(size * h + 1) / (size * h)}"
-		canopyOutline = canopy.clone().attr transform: "t-1,0"
+		canopyOutline = canopy.clone()
 		for tri in canopyOutline.selectAll "*"
 			triColor = Snap.color tri.attr "fill"
 			tri.attr fill: Snap.hsb triColor.h, triColor.s, triColor.v - 0.2
-		tree = paper.group(canopyOutline, trunk, canopy).attr transform: "t#{-50 * h},#{-50 * h}t#{x * w},#{y * h}s#{size / 100}"
+		canopyOutlineLeft = canopyOutline.clone().attr transform: "t-1,0"
+		canopyOutlineRight = canopyOutline.attr transform: "t1,0"
+
+		tree = paper.group(canopyOutlineLeft, canopyOutlineRight, trunk, canopy).attr transform: "t#{-50 * h},#{-50 * h}t#{x * w},#{y * h}s#{size / 100}"
 		
 		if doHideTreeBase
 			trunk.attr visibility: "hidden"
 			canopy.attr visibility: "hidden"
 		if doHideCanopyOutline
-			canopyOutline.attr visibility: "hidden"
+			canopyOutlineLeft.attr visibility: "hidden"
+			canopyOutlineRight.attr visibility: "hidden"
 
 		tree
 
