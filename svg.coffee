@@ -4,7 +4,9 @@ doHideCanopyOutline = no
 doHideTreeBase = no
 
 $(document).ready ->
-	paper = Snap $(window).width(), $(window).height()
+	window.paper = Snap "#svg"
+	$("#svg").width $(window).width()
+	$("#svg").height $(window).height()
 
 	w = $(window).width() / 100
 	h = $(window).height() / 100
