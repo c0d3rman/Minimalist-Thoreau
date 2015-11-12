@@ -30,6 +30,64 @@ $(document).ready ->
 	]
 	ground.attr fill: "#70500F" # Chambray Complement Darker
 
+	# Mountains
+	flipTransform = "t#{-15 * h},#{-15 * h}s-1,1t#{-15 * h},#{15 * h}"
+	mountainBase = paper.polygon scaleCoordsY [
+		0, 30,
+		4, 29,
+		7, 12,
+		9, 7,
+		10, 6,
+		12, 5,
+		16, 6,
+		17, 8,
+		18, 11,
+		19, 13,
+		19, 14,
+		20, 17,
+		20, 19,
+		22, 23,
+		25, 26,
+		27, 27,
+		28, 29,
+		30, 30
+	]
+	mountainBase.attr fill: "#67809F" # Hoki
+
+	mountainTop = paper.polygon scaleCoordsY [
+		7, 12,
+		9, 7,
+		10, 6,
+		12, 5,
+		16, 6,
+		17, 8,
+		18, 11,
+		19, 13,
+		19, 14,
+		17, 12,
+		16, 11
+		15, 11,
+		14, 13,
+		13, 14,
+		12, 14,
+		11, 12,
+		10, 11,
+		9, 11
+	]
+	mountainTop.attr fill: "#D2D7D3" # Pumice
+
+	mountain = paper.group mountainBase, mountainTop
+
+	mountains = paper.group()
+
+	mountains.add mountain
+	mountains.add mountain.clone().attr transform: flipTransform + "t#{-28 * w},0"
+	mountains.add mountain.clone().attr transform: flipTransform + "t#{-25 * w},0"
+	mountains.add mountain.clone().attr transform: "t#{50 * w},0"
+	mountains.add mountain.clone().attr transform: "t#{60 * w},0"
+	mountains.add mountain.clone().attr transform: flipTransform + "t#{-61 * w},0"
+	mountains.add mountain.clone().attr transform: "t#{66 * w},0"
+	
 	# Lake
 	lakePoints = scaleCoords [
 		0, 100,
