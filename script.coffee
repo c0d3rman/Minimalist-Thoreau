@@ -28,8 +28,6 @@ $(document).ready ->
 		100, 100
 		0, 100
 	]
-	#ground.attr fill: "#704214" # Sepia
-	#ground.attr fill: "#956B16" # Chambray Complement Dark
 	ground.attr fill: "#70500F" # Chambray Complement Darker
 
 	# Lake
@@ -57,9 +55,6 @@ $(document).ready ->
 	lake = paper.polygon lakePoints
 	lake.attr
 		fill: "#3A539B", # Chambray
-		#stroke: "#5C75BD" # Chambray + 2
-		#stroke: "#574A51" # Chambray + Sepia blend
-		#stroke: "#956B16" # 
 		strokeWidth: "3"
 
 	setInterval ->
