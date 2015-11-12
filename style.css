@@ -2,5 +2,45 @@ html, body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	/* overflow: hidden; */
+	background-color: #3A539B; /* Chambray */
+}
+
+#svgDiv {
+	width: 100%;
+	height: 100%;
+}
+
+#textDiv {
+	width: 100%;
+	height: 100%;
+	padding-top: 15%;
+	text-align: center;
+}
+
+.textFadeIn {
+	opacity: 0;
+	font-family: Lato;
+	font-weight: 100;
+	font-size: 20vh;
+	color: #132359; /* Jackson's Purple Dark */
+	margin: 0;
+}
+
+.fadeIn {
+	animation: textFadeIn 0.5s;
+	opacity: 1;
+}
+.fadeOut {
+	animation: textFadeIn 0.5s reverse;
+}
+
+@keyframes textFadeIn {
+	from {
+		opacity: 0;
+		font-size: 17vh;
+	}
+	to {
+		opacity: 1;
+		font-size: 20vh;
+	}
 }
